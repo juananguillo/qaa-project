@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="qaa-boot" />
+        <module name="qaa-model" />
+        <module name="qaa-api" />
+        <module name="qaa-rest" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="QuestionsAndAnswers" options="" />
+      <module name="qaa-api" options="-parameters" />
+      <module name="qaa-boot" options="-parameters" />
+      <module name="qaa-model" options="-parameters" />
+      <module name="qaa-rest" options="-parameters" />
+    </option>
+  </component>
+</project>

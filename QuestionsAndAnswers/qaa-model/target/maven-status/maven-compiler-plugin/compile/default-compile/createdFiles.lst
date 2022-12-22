@@ -1,0 +1,6 @@
+com\qaa\model\mapper\questions\impl\QuestionsMapImpl.class
+com\qaa\model\repository\questions\QuestionsDao.class
+com\qaa\model\service\questions\QuestionsService.class
+com\qaa\model\repository\questions\impl\QuestionsDaoImpl.class
+com\qaa\model\mapper\questions\QuestionsMap.class
+com\qaa\model\service\questions\impl\QuestionsServiceImpl.class
