@@ -23,7 +23,6 @@ public class QuestionsController {
 
     @PostMapping(value = "api/save")
     public void save(final @Valid @RequestBody QuestionsDto quest){
-        System.out.println(1);
         service.save(quest);
     }
 
