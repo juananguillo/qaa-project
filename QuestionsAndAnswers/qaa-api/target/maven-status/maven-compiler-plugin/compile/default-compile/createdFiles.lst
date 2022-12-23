@@ -1,3 +1,7 @@
 com\qaa\api\questions\vo\QuestionsVo.class
-com\qaa\api\questions\dto\QuestionsDto.class
+com\qaa\api\questions\vo\RoundsVo.class
+com\qaa\api\questions\dto\RoundsDto.class
+com\qaa\api\users\dto\UsersDto.class
 com\qaa\api\utils\ErrorConstants.class
+com\qaa\api\questions\dto\QuestionsDto.class
+com\qaa\api\users\vo\UsersVo.class

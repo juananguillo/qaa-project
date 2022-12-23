@@ -1,2 +1,4 @@
 com\qaa\api\questions\DemoController.class
+com\qaa\api\users\UsersController.class
+com\qaa\api\questions\RoundsController.class
 com\qaa\api\questions\QuestionsController.class

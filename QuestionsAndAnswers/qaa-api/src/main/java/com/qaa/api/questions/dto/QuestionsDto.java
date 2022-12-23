@@ -16,7 +16,7 @@ public class QuestionsDto {
   @NotEmpty
   private String question;
 
-  private String userId;
+  
 }
   
     

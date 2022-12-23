@@ -16,8 +16,7 @@ public class QuestionsVo {
   private ObjectId id;
 
   private String question;
-
-  private ObjectId userId;
-
+  
+  
 }
 
