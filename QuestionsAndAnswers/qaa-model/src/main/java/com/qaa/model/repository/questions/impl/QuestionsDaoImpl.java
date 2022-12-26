@@ -1,6 +1,7 @@
 package com.qaa.model.repository.questions.impl;
 
 import com.qaa.api.questions.vo.QuestionsVo;
+import com.qaa.api.questions.vo.RoundsVo;
 import com.qaa.model.repository.questions.QuestionsDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -20,7 +21,10 @@ public class QuestionsDaoImpl implements QuestionsDao {
 
   @Override
   public void save(QuestionsVo quest) {
+    
     mt.save(quest);
+    mt.update(RoundsVo.class).matching(Criteria.where(ID).is(quest.getRoundsId()))
+        .apply(new Update().push("questions", quest.getId())).first();
   }
 
   @Override

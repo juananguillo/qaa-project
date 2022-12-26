@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,6 +16,8 @@ public class QuestionsDto {
   // @NotNull(message = ErrorConstants.titleError)
   @NotEmpty
   private String question;
+
+  private String roundsId;
 
   
 }

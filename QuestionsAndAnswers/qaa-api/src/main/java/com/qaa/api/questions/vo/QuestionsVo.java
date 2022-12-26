@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(value = "questions")
@@ -16,6 +17,9 @@ public class QuestionsVo {
   private ObjectId id;
 
   private String question;
+  
+  @Indexed
+  private ObjectId roundsId;
   
   
 }

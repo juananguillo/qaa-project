@@ -15,16 +15,19 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class RoundsDaoImpl implements RoundsDao {
 
-  public static final String ID = "ID";
+  public static final String ID = "id";
 
   public static final String NAME = "name";
+
+  public static final String ROUNDS_ID = "roundsId";
 
   @Autowired
   MongoTemplate mt;
   
   @Override
   public void save(RoundsVo quest) {
-    mt.save(quest);
+    System.out.println(mt.save(quest));
+   
   }
 
   @Override
@@ -49,7 +52,13 @@ public class RoundsDaoImpl implements RoundsDao {
   @Override
   public void delete(String id) {
     final Query query = new Query();
+    System.out.println(id);
     query.addCriteria(Criteria.where(ID).is(id));
     mt.remove(query, RoundsVo.class);
+    final Query query2 = new Query();
+    query2.addCriteria(Criteria.where(ROUNDS_ID).is(id));
+    mt.remove(query2, QuestionsVo.class);
+   mt.
+    
   }
 }
