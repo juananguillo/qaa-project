@@ -5,6 +5,7 @@ import java.util.List;
 import com.qaa.api.questions.vo.QuestionsVo;
 import com.qaa.api.questions.vo.RoundsVo;
 import com.qaa.model.repository.questions.RoundsDao;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -54,11 +55,15 @@ public class RoundsDaoImpl implements RoundsDao {
     final Query query = new Query();
     System.out.println(id);
     query.addCriteria(Criteria.where(ID).is(id));
-    mt.remove(query, RoundsVo.class);
+    //mt.remove(query, RoundsVo.class);
     final Query query2 = new Query();
-    query2.addCriteria(Criteria.where(ROUNDS_ID).is(id));
+    query2.addCriteria(Criteria.where(ROUNDS_ID).is(new ObjectId(id)));
+    System.out.println(mt.find(query2, QuestionsVo.class));
+    final Query query3 = new Query();
+    query3.addCriteria(Criteria.where(ID).is("63ab0d1d1348e9573713339a"));
+    System.out.println(mt.find(query3, QuestionsVo.class));
     mt.remove(query2, QuestionsVo.class);
-   mt.
+   
     
   }
 }
