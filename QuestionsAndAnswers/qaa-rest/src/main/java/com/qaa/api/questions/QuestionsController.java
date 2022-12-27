@@ -23,12 +23,11 @@ public class QuestionsController {
 
     @PostMapping(value = "api/save")
     public void save(final @Valid @RequestBody QuestionsDto quest){
-        System.out.println(1);
         service.save(quest);
     }
 
     @DeleteMapping(value = "api/delete/{id}")
-    public void delete(final @PathVariable(value ="id") String id){
+    public void delete(final @PathVariable(value ="id") Long id){
         service.delete(id);
     }
 }

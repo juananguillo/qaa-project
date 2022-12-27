@@ -12,4 +12,6 @@ public interface QuestionsMap {
     QuestionsDto asDTo(QuestionsVo quest);
 
     QuestionsVo asVo(QuestionsDto quest);
+    
+    List<QuestionsVo> asVos(List<QuestionsDto> list);
 }
