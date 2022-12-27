@@ -13,5 +13,5 @@ public interface RoundsService {
 
   List<RoundsDto> findBy();
 
-  void delete(String id);
+  void delete(Long id);
 }

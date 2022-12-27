@@ -38,7 +38,7 @@ public class RoundsController {
   }
   
   @DeleteMapping(value = "api/delete/{id}")
-  public void delete (@PathVariable(value= "id") String id){
+  public void delete (@PathVariable(value= "id") Long id){
     roundsService.delete(id);
   }
 }

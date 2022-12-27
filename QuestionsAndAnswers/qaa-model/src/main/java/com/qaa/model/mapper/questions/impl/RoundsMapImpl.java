@@ -21,13 +21,13 @@ public class RoundsMapImpl implements RoundsMap {
   
   @Override
   public List<RoundsDto> asDTos(List<RoundsVo> list) {
-    return Optional.ofNullable(list).orElse(Collections.emptyList()).stream().map(l -> new RoundsDto(l.getId().toString(), l.getName(), questionsMap.asDTos(l.getQuestions()))).collect(
+    return Optional.ofNullable(list).orElse(Collections.emptyList()).stream().map(l -> new RoundsDto(l.getId().toString(), l.getName(), l.getUserId())).collect(
         Collectors.toList());
   }
 
   @Override
   public RoundsDto asDTo(RoundsVo rounds) {
-    return new RoundsDto(rounds.getId().toString(),rounds.getName(), questionsMap.asDTos(rounds.getQuestions()));
+    return new RoundsDto(rounds.getId().toString(),rounds.getName(), rounds.getUserId());
   }
 
   @Override
@@ -35,7 +35,7 @@ public class RoundsMapImpl implements RoundsMap {
    RoundsVo newRounds = new RoundsVo();
    
    newRounds.setName(rounds.getName());
-   newRounds.setQuestions(questionsMap.asVos(rounds.getQuestions()));
+   newRounds.setUserId(rounds.getUserId());
    return newRounds;
   }
 }

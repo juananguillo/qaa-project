@@ -20,8 +20,10 @@ public class RoundsDto {
   @NotNull
   @NotEmpty
   private String name;
+  
 
- 
-  private List<QuestionsDto> questions;
+  @NotNull
+  @NotEmpty
+  private String userId;
 
 }

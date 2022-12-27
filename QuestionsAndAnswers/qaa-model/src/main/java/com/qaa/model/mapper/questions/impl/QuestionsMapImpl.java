@@ -17,13 +17,13 @@ public class QuestionsMapImpl implements QuestionsMap {
     @Override
     public List<QuestionsDto> asDTos(List<QuestionsVo> list) {
 
-        return Optional.ofNullable(list).orElse(Collections.emptyList()).stream().map(l -> new QuestionsDto(l.getId().toString(), l.getQuestion())).collect(Collectors.toList());
+        return Optional.ofNullable(list).orElse(Collections.emptyList()).stream().map(l -> new QuestionsDto(l.getId(), l.getQuestion(), l.getRoundId())).collect(Collectors.toList());
     }
 
     @Override
     public QuestionsDto asDTo(QuestionsVo quest) {
         
-        return new QuestionsDto(quest.getId().toString(), quest.getQuestion());
+        return new QuestionsDto(quest.getId(), quest.getQuestion(), quest.getRoundId());
     }
 
     @Override
@@ -31,14 +31,14 @@ public class QuestionsMapImpl implements QuestionsMap {
         QuestionsVo newquest = new QuestionsVo();
 
         newquest.setQuestion(quest.getQuestion());
-        
+        newquest.setRoundId(quest.getRoundId());
 
         return newquest;
     }
 
     @Override
     public List<QuestionsVo> asVos(List<QuestionsDto> list) {
-        return Optional.ofNullable(list).orElse(Collections.emptyList()).stream().map(l -> new QuestionsVo(new ObjectId(), l.getQuestion())).collect(Collectors.toList());
+        return Optional.ofNullable(list).orElse(Collections.emptyList()).stream().map(l -> new QuestionsVo(l.getId(), l.getQuestion(), l.getRoundId())).collect(Collectors.toList());
 
     }
 }

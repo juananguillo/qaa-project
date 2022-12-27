@@ -3,6 +3,7 @@ package com.qaa.model.service.questions.impl;
 import java.util.List;
 
 import com.qaa.api.questions.dto.RoundsDto;
+import com.qaa.api.questions.vo.RoundsVo;
 import com.qaa.model.mapper.questions.RoundsMap;
 import com.qaa.model.repository.questions.RoundsDao;
 import com.qaa.model.service.questions.RoundsService;
@@ -25,12 +26,12 @@ public class RoundsServiceImpl implements RoundsService {
 
   @Override
   public void update(RoundsDto quest) {
-      dao.update(map.asVo(quest));
+      dao.save(map.asVo(quest));
   }
 
   @Override
   public List<RoundsDto> findAll() {
-    return map.asDTos(dao.findAll());
+    return map.asDTos((List<RoundsVo>) dao.findAll());
   }
 
   @Override
@@ -39,7 +40,7 @@ public class RoundsServiceImpl implements RoundsService {
   }
 
   @Override
-  public void delete(String id) {
-    dao.delete(id);
+  public void delete(Long id) {
+    dao.deleteById(id);
   }
 }

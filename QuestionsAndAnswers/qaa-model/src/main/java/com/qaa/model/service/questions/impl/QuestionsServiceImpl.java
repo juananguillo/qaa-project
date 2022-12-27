@@ -25,7 +25,7 @@ public class QuestionsServiceImpl implements QuestionsService {
 
     @Override
     public void update(QuestionsDto quest) {
-        dao.update(map.asVo(quest));
+        dao.save(map.asVo(quest));
     }
 
     @Override
@@ -39,7 +39,7 @@ public class QuestionsServiceImpl implements QuestionsService {
     }
 
     @Override
-    public void delete(String id) {
-        dao.delete(id);
+    public void delete(Long id) {
+        dao.deleteById(id);
     }
 }

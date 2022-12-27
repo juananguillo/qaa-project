@@ -27,7 +27,7 @@ public class QuestionsController {
     }
 
     @DeleteMapping(value = "api/delete/{id}")
-    public void delete(final @PathVariable(value ="id") String id){
+    public void delete(final @PathVariable(value ="id") Long id){
         service.delete(id);
     }
 }

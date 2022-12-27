@@ -15,6 +15,6 @@ public interface QuestionsService {
 
     List<QuestionsDto> findBy();
 
-    void delete(String id);
+    void delete(Long id);
 }
 
