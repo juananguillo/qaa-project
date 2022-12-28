@@ -8,11 +8,10 @@ public interface UsersService {
     
     List<UsersDto> findAll();
     
-    UsersDto findById(String id);
     
     void save(UsersDto user);
     
-    void delete(String id);
+    void delete(Long id);
     
     void update(UsersDto user);
     

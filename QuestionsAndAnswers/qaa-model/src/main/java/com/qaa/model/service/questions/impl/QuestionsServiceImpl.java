@@ -1,6 +1,6 @@
 package com.qaa.model.service.questions.impl;
 
-import com.qaa.api.questions.dto.QuestionsDto;
+import com.qaa.api.questions.dto.QuestionDto;
 import com.qaa.model.mapper.questions.QuestionsMap;
 import com.qaa.model.repository.questions.QuestionsDao;
 import com.qaa.model.service.questions.QuestionsService;
@@ -19,22 +19,22 @@ public class QuestionsServiceImpl implements QuestionsService {
     private QuestionsMap map;
 
     @Override
-    public void save(QuestionsDto quest) {
+    public void save(QuestionDto quest) {
         dao.save(map.asVo(quest));
     }
 
     @Override
-    public void update(QuestionsDto quest) {
+    public void update(QuestionDto quest) {
         dao.save(map.asVo(quest));
     }
 
     @Override
-    public List<QuestionsDto> findAll() {
+    public List<QuestionDto> findAll() {
         return map.asDTos(dao.findAll());
     }
 
     @Override
-    public List<QuestionsDto> findBy() {
+    public List<QuestionDto> findBy() {
         return null;
     }
 

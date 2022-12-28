@@ -26,10 +26,6 @@ public class UsersController {
     return usersService.findAll();
   }
   
-  @GetMapping(value = "api/findById/{id}")
-  public UsersDto findById(@PathVariable(value = "id") String id){
-    return usersService.findById(id);
-  }
   
   @PostMapping(value = "api/save")
   public void save(@Valid @RequestBody UsersDto user){
@@ -37,7 +33,7 @@ public class UsersController {
   }
   
   @DeleteMapping(value = "api/delete/{id}")
-  public void delete(@PathVariable(value = "id") String id){
+  public void delete(@PathVariable(value = "id") Long id){
     usersService.delete(id);
   }
   

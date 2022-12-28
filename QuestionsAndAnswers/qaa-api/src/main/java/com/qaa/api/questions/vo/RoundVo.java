@@ -5,16 +5,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
-
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.List;
 
@@ -23,7 +22,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name="rounds")
-public class RoundsVo {
+public class RoundVo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO   )
     private Long id;
@@ -32,11 +31,7 @@ public class RoundsVo {
     @NotEmpty
     private String name;
     
-    
-   @NotNull
-   @NotEmpty
-   
-    private String userId;
-    
-    
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UsersVo user;
 }

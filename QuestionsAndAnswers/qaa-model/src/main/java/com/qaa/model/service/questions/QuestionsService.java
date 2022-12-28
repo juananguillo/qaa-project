@@ -1,19 +1,19 @@
 package com.qaa.model.service.questions;
 
-import com.qaa.api.questions.dto.QuestionsDto;
+import com.qaa.api.questions.dto.QuestionDto;
 
 
 import java.util.List;
 
 
 public interface QuestionsService {
-    void save(QuestionsDto quest);
+    void save(QuestionDto quest);
 
-    void update(QuestionsDto quest);
+    void update(QuestionDto quest);
 
-    List<QuestionsDto> findAll();
+    List<QuestionDto> findAll();
 
-    List<QuestionsDto> findBy();
+    List<QuestionDto> findBy();
 
     void delete(Long id);
 }

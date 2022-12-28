@@ -2,7 +2,7 @@ package com.qaa.api.questions;
 
 import java.util.List;
 
-import com.qaa.api.questions.dto.RoundsDto;
+import com.qaa.api.questions.dto.RoundDto;
 import com.qaa.model.service.questions.RoundsService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,18 +22,18 @@ public class RoundsController {
   private RoundsService roundsService;
   
   @PostMapping(value = "api/save")
-  public void save(@Valid @RequestBody RoundsDto rounds){
+  public void save(@Valid @RequestBody RoundDto rounds){
     roundsService.save(rounds);
     
   }
   
   @PostMapping(value= "api/update")
-  public void update(@Valid @RequestBody RoundsDto rounds){
+  public void update(@Valid @RequestBody RoundDto rounds){
     roundsService.update(rounds);
   }
   
   @GetMapping(value = "api/findAll")
-  public List<RoundsDto> findAll(){
+  public List<RoundDto> findAll(){
     return roundsService.findAll();
   }
   

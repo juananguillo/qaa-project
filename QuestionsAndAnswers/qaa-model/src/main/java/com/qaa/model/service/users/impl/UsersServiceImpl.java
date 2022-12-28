@@ -23,10 +23,7 @@ public class UsersServiceImpl  implements UsersService {
         return map.asDTos(dao.findAll());
     }
 
-    @Override
-    public UsersDto findById(String id) {
-        return map.asDTo(dao.findById(id));
-    }
+   
 
     @Override
     public void save(UsersDto user) {
@@ -34,12 +31,12 @@ public class UsersServiceImpl  implements UsersService {
     }
 
     @Override
-    public void delete(String id) {
-        dao.delete(id);
+    public void delete(Long id) {
+        dao.deleteById(id);
     }
 
     @Override
     public void update(UsersDto user) {
-        dao.update(map.asVo(user));
+        dao.save(map.asVo(user));
     }
 }

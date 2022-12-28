@@ -2,16 +2,16 @@ package com.qaa.model.service.questions;
 
 import java.util.List;
 
-import com.qaa.api.questions.dto.RoundsDto;
+import com.qaa.api.questions.dto.RoundDto;
 
 public interface RoundsService {
-  void save(RoundsDto quest);
+  void save(RoundDto quest);
 
-  void update(RoundsDto quest);
+  void update(RoundDto quest);
 
-  List<RoundsDto> findAll();
+  List<RoundDto> findAll();
 
-  List<RoundsDto> findBy();
+  List<RoundDto> findBy();
 
   void delete(Long id);
 }

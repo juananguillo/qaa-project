@@ -1,7 +1,6 @@
 package com.qaa.api.users.dto;
 
-import com.qaa.api.questions.dto.RoundsDto;
-import com.qaa.api.questions.vo.RoundsVo;
+import com.qaa.api.questions.dto.RoundDto;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -15,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class UsersDto {
 
-    private String id;
+    private Long id;
     
     @NotNull
     @NotEmpty
@@ -31,5 +30,5 @@ public class UsersDto {
 
     private String description;
 
-    private List<RoundsDto> rounds;
+
 }

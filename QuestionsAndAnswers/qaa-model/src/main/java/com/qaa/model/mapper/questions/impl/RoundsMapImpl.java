@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import com.qaa.api.questions.dto.QuestionsDto;
-import com.qaa.api.questions.dto.RoundsDto;
-import com.qaa.api.questions.vo.RoundsVo;
+import com.qaa.api.questions.dto.RoundDto;
+import com.qaa.api.questions.vo.RoundVo;
 import com.qaa.model.mapper.questions.QuestionsMap;
 import com.qaa.model.mapper.questions.RoundsMap;
+import com.qaa.model.mapper.users.UsersMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,25 +17,26 @@ import org.springframework.stereotype.Component;
 public class RoundsMapImpl implements RoundsMap {
 
   @Autowired
-  QuestionsMap questionsMap;
+  UsersMap userMap;
   
   @Override
-  public List<RoundsDto> asDTos(List<RoundsVo> list) {
-    return Optional.ofNullable(list).orElse(Collections.emptyList()).stream().map(l -> new RoundsDto(l.getId().toString(), l.getName(), l.getUserId())).collect(
+  public List<RoundDto> asDTos(List<RoundVo> list) {
+    return Optional.ofNullable(list).orElse(Collections.emptyList()).stream().map(l -> new RoundDto(l.getId().toString(), l.getName(), userMap.asDTo(l.getUser()))).collect(
         Collectors.toList());
   }
 
   @Override
-  public RoundsDto asDTo(RoundsVo rounds) {
-    return new RoundsDto(rounds.getId().toString(),rounds.getName(), rounds.getUserId());
+  public RoundDto asDTo(RoundVo rounds) {
+    return new RoundDto(rounds.getId().toString(),rounds.getName(), userMap.asDTo(rounds.getUser()));
   }
 
   @Override
-  public RoundsVo asVo(RoundsDto rounds) {
-   RoundsVo newRounds = new RoundsVo();
+  public RoundVo asVo(RoundDto rounds) {
+   RoundVo newRounds = new RoundVo();
    
    newRounds.setName(rounds.getName());
-   newRounds.setUserId(rounds.getUserId());
+   newRounds.setUser(userMap.asVo(rounds.getUser()));
+   
    return newRounds;
   }
 }

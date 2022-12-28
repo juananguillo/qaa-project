@@ -1,6 +1,6 @@
 package com.qaa.api.questions;
 
-import com.qaa.api.questions.dto.QuestionsDto;
+import com.qaa.api.questions.dto.QuestionDto;
 import com.qaa.model.service.questions.QuestionsService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +17,12 @@ public class QuestionsController {
 
 
     @GetMapping(value = "api/findAll")
-    public @ResponseBody List<QuestionsDto> findAll(){
+    public @ResponseBody List<QuestionDto> findAll(){
         return service.findAll();
     }
 
     @PostMapping(value = "api/save")
-    public void save(final @Valid @RequestBody QuestionsDto quest){
+    public void save(final @Valid @RequestBody QuestionDto quest){
         service.save(quest);
     }
 

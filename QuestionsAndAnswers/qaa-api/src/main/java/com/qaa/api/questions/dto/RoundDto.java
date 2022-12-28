@@ -1,19 +1,17 @@
 package com.qaa.api.questions.dto;
 
-import java.util.List;
 
-import com.qaa.api.questions.vo.QuestionsVo;
+import com.qaa.api.users.dto.UsersDto;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RoundsDto {
+public class RoundDto {
   
   private String id;
   
@@ -24,6 +22,7 @@ public class RoundsDto {
 
   @NotNull
   @NotEmpty
-  private String userId;
+  private UsersDto user;
+  
 
 }

@@ -1,17 +1,17 @@
 package com.qaa.model.mapper.questions;
 
-import com.qaa.api.questions.dto.QuestionsDto;
-import com.qaa.api.questions.vo.QuestionsVo;
+import com.qaa.api.questions.dto.QuestionDto;
+import com.qaa.api.questions.vo.QuestionVo;
 
 import java.util.List;
 
 public interface QuestionsMap {
 
-    List<QuestionsDto> asDTos(List<QuestionsVo> list);
+    List<QuestionDto> asDTos(List<QuestionVo> list);
 
-    QuestionsDto asDTo(QuestionsVo quest);
+    QuestionDto asDTo(QuestionVo quest);
 
-    QuestionsVo asVo(QuestionsDto quest);
+    QuestionVo asVo(QuestionDto quest);
     
-    List<QuestionsVo> asVos(List<QuestionsDto> list);
+    List<QuestionVo> asVos(List<QuestionDto> list);
 }

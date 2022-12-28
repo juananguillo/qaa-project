@@ -2,14 +2,14 @@ package com.qaa.model.mapper.questions;
 
 import java.util.List;
 
-import com.qaa.api.questions.dto.RoundsDto;
-import com.qaa.api.questions.vo.RoundsVo;
+import com.qaa.api.questions.dto.RoundDto;
+import com.qaa.api.questions.vo.RoundVo;
 
 public interface RoundsMap {
 
-  List<RoundsDto> asDTos(List<RoundsVo> list);
+  List<RoundDto> asDTos(List<RoundVo> list);
   
-  RoundsDto asDTo(RoundsVo rounds);
+  RoundDto asDTo(RoundVo rounds);
   
-  RoundsVo asVo(RoundsDto rounds);
+  RoundVo asVo(RoundDto rounds);
 }

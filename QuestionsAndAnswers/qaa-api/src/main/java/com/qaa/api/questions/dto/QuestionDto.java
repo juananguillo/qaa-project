@@ -9,17 +9,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class QuestionsDto {
+public class QuestionDto {
 
   private Long id;
 
   // @NotNull(message = ErrorConstants.titleError)
   @NotEmpty
   private String question;
-
-  @NotNull
- 
-  private Long RoundId;
+  
+  private int min;
+  
+  private RoundDto round;
 }
   
     
