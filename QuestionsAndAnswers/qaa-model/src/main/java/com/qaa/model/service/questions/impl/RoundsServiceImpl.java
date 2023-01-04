@@ -26,7 +26,7 @@ public class RoundsServiceImpl implements RoundsService {
 
   @Override
   public void update(RoundDto quest) {
-      dao.save(map.asVo(quest));
+      dao.save(map.asVo(quest)); 
   }
 
   @Override

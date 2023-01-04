@@ -8,21 +8,26 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class RoundDto {
   
-  private String id;
+  private Long id;
   
   @NotNull
   @NotEmpty
   private String name;
-  
 
   @NotNull
   @NotEmpty
-  private UsersDto user;
-  
+  private String description;
+
+  @NotNull
+  private Long userid;
+
+  private List<QuestionDto> questions;
 
 }

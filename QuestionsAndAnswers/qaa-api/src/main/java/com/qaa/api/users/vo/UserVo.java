@@ -1,21 +1,15 @@
 package com.qaa.api.users.vo;
 
 import com.qaa.api.questions.vo.RoundVo;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
+import lombok.ToString;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
-
+import java.io.Serializable;
 import java.util.List;
 
 @Data
@@ -23,10 +17,11 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
-public class UsersVo {
+@ToString(exclude = {"rounds"})
+public class UserVo implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @NotNull
@@ -43,6 +38,10 @@ public class UsersVo {
     
     private String description;
     
+    private int age;
+    
+    @OneToMany(mappedBy ="id", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private List<RoundVo> rounds;
     
     
 }

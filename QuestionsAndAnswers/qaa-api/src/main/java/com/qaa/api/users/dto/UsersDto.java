@@ -1,6 +1,7 @@
 package com.qaa.api.users.dto;
 
 import com.qaa.api.questions.dto.RoundDto;
+import com.qaa.api.questions.vo.RoundVo;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,10 @@ public class UsersDto {
     private String surname;
 
     private String description;
+    
+    private int age;
+
+    private List<RoundDto> rounds;
 
 
 }

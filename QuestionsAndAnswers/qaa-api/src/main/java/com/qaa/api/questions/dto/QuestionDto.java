@@ -1,7 +1,6 @@
 package com.qaa.api.questions.dto;
 
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,9 +16,13 @@ public class QuestionDto {
   @NotEmpty
   private String question;
   
-  private int min;
+  private int size;
+
+
+  private String clue;
   
-  private RoundDto round;
+  private boolean optional;
+
 }
   
     

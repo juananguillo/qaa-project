@@ -1,6 +1,7 @@
 package com.qaa.api.questions;
 
 import com.qaa.api.questions.dto.QuestionDto;
+import com.qaa.api.users.dto.UsersDto;
 import com.qaa.model.service.questions.QuestionsService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,10 @@ public class QuestionsController {
     @DeleteMapping(value = "api/delete/{id}")
     public void delete(final @PathVariable(value ="id") Long id){
         service.delete(id);
+    }
+
+    @PutMapping(value = "api/update")
+    public void update(@Valid @RequestBody QuestionDto quest){
+        service.update(quest);
     }
 }

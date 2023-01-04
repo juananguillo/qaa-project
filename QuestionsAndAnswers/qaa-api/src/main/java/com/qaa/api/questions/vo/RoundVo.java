@@ -1,20 +1,14 @@
 package com.qaa.api.questions.vo;
 
-import com.qaa.api.users.vo.UsersVo;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import com.qaa.api.users.vo.UserVo;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
@@ -22,16 +16,23 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name="rounds")
-public class RoundVo {
+public class RoundVo implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO   )
+    @GeneratedValue(strategy = GenerationType.IDENTITY   )
     private Long id;
     
     @NotNull
     @NotEmpty
     private String name;
     
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UsersVo user;
+    @NotNull
+    @NotEmpty
+    private String description;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    private UserVo user;
+    
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "round_id")
+    private List<QuestionVo> questions;
 }

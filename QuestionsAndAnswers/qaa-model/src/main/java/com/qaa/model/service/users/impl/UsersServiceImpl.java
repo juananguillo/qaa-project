@@ -1,6 +1,7 @@
 package com.qaa.model.service.users.impl;
 
 import com.qaa.api.users.dto.UsersDto;
+import com.qaa.api.users.vo.UserVo;
 import com.qaa.model.mapper.users.UsersMap;
 import com.qaa.model.repository.users.UsersDao;
 import com.qaa.model.service.users.UsersService;
@@ -37,6 +38,6 @@ public class UsersServiceImpl  implements UsersService {
 
     @Override
     public void update(UsersDto user) {
-        dao.save(map.asVo(user));
+      dao.update(user.getId(), user.getName(), user.getSurname(), user.getDescription(), user.getAge());
     }
 }

@@ -1,16 +1,15 @@
 package com.qaa.model.mapper.users;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.qaa.api.users.dto.UsersDto;
-import com.qaa.api.users.vo.UsersVo;
+import com.qaa.api.users.vo.UserVo;
 
 public interface UsersMap {
 
-  List<UsersDto> asDTos(List<UsersVo> list);
+  List<UsersDto> asDTos(List<UserVo> list);
 
-  UsersDto asDTo(UsersVo user);
+  UsersDto asDTo(UserVo user);
 
-  UsersVo asVo(UsersDto user);
+  UserVo asVo(UsersDto user);
 }
