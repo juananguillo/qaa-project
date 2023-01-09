@@ -1,6 +1,6 @@
 package com.qaa.api.users.vo;
 
-import com.qaa.api.questions.vo.RoundVo;
+import com.qaa.api.questions.vo.RoundQuestionVo;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -27,10 +27,6 @@ public class UserVo implements Serializable {
     @NotNull
     @NotEmpty
     private String userName;
-
-    @NotNull
-    @NotEmpty
-    private String pwd;
     
     private String name;
     
@@ -41,7 +37,7 @@ public class UserVo implements Serializable {
     private int age;
     
     @OneToMany(mappedBy ="id", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    private List<RoundVo> rounds;
+    private List<RoundQuestionVo> rounds;
     
     
 }

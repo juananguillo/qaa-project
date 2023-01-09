@@ -2,7 +2,7 @@ package com.qaa.api.users;
 
 import java.util.List;
 
-import com.qaa.api.users.dto.UsersDto;
+import com.qaa.api.users.dto.UserDto;
 import com.qaa.model.service.users.UsersService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +16,13 @@ public class UsersController {
   UsersService usersService;
   
   @GetMapping(value = "/api/findAll")
-  public List<UsersDto> findAll(){
+  public List<UserDto> findAll(){
     return usersService.findAll();
   }
   
   
   @PostMapping(value = "api/save")
-  public void save(@Valid @RequestBody UsersDto user){
+  public void save(@Valid @RequestBody UserDto user){
     usersService.save(user);
   }
   
@@ -32,7 +32,7 @@ public class UsersController {
   }
   
   @PutMapping(value = "api/update")
-  public void update(@Valid @RequestBody UsersDto user){
+  public void update(@Valid @RequestBody UserDto user){
      usersService.update(user);
   }
   

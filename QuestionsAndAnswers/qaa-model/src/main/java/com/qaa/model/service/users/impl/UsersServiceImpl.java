@@ -1,9 +1,8 @@
 package com.qaa.model.service.users.impl;
 
-import com.qaa.api.users.dto.UsersDto;
-import com.qaa.api.users.vo.UserVo;
-import com.qaa.model.mapper.users.UsersMap;
-import com.qaa.model.repository.users.UsersDao;
+import com.qaa.api.users.dto.UserDto;
+import com.qaa.model.mapper.users.UserMap;
+import com.qaa.model.repository.users.UserDao;
 import com.qaa.model.service.users.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,20 +13,20 @@ import java.util.List;
 public class UsersServiceImpl  implements UsersService {
     
     @Autowired
-    UsersDao dao;
+    UserDao dao;
     
     @Autowired
-    UsersMap map;
+    UserMap map;
     
     @Override
-    public List<UsersDto> findAll() {
+    public List<UserDto> findAll() {
         return map.asDTos(dao.findAll());
     }
 
    
 
     @Override
-    public void save(UsersDto user) {
+    public void save(UserDto user) {
         dao.save(map.asVo(user));
     }
 
@@ -37,7 +36,7 @@ public class UsersServiceImpl  implements UsersService {
     }
 
     @Override
-    public void update(UsersDto user) {
+    public void update(UserDto user) {
       dao.update(user.getId(), user.getName(), user.getSurname(), user.getDescription(), user.getAge());
     }
 }

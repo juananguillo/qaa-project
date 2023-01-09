@@ -1,7 +1,12 @@
-C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\questions\vo\RoundVo.java
-C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\questions\dto\RoundDto.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\users\dto\UserDto.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\answers\dto\AnswerDto.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\questions\dto\RoundQuestionDto.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\users\dto\NewUserDto.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\answers\dto\RoundAnswerDto.java
 C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\questions\vo\QuestionVo.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\questions\vo\RoundQuestionVo.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\answers\vo\RoundAnswerVo.java
 C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\utils\ErrorConstants.java
-C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\users\dto\UsersDto.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\answers\vo\AnswerVo.java
 C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\questions\dto\QuestionDto.java
 C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-api\src\main\java\com\qaa\api\users\vo\UserVo.java
