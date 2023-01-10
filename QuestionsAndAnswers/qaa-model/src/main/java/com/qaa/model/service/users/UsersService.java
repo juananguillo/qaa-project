@@ -1,19 +1,18 @@
 package com.qaa.model.service.users;
 
-import com.qaa.api.users.dto.UsersDto;
+import com.qaa.api.users.dto.UserDto;
 
 import java.util.List;
 
 public interface UsersService {
     
-    List<UsersDto> findAll();
+    List<UserDto> findAll();
     
-    UsersDto findById(String id);
     
-    void save(UsersDto user);
+    void save(UserDto user);
     
-    void delete(String id);
-    
-    void update(UsersDto user);
+    void delete(Long id);
+
+    void update(UserDto user);
     
 }
