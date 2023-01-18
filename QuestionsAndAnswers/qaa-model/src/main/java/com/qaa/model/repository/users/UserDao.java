@@ -17,13 +17,22 @@ public interface UserDao extends JpaRepository<UserVo, Long> {
   @Query("update UserVo u set u.name=:name, u.surname=:surname, u.description=:description, u.age=:age where u.id=:id")
   void update(@Param("id") Long id, @Param("name") String name, @Param("surname") String surname, @Param("description") String description,@Param("age") int age);
 
-  /*
+  
   @Modifying
-  @Query("update UserVo u set u.userName=:username, u.pwd=:pwd where u.id=:id")
-  void updateLogin(@Param("id") Long id, @Param("username") String username, @Param("pwd") String pwd);*/
+  @Query("update UserVo u set u.username=:username, u.mail=:email where u.id=:id")
+  void updateLogin(@Param("id") Long id, @Param("username") String username,@Param("email") String email);
 
-  @Query("select r from RoundQuestionVo r join fetch r.user u join fetch r.questions where r.id=?1")
-  RoundQuestionVo findRoundById(Long id);
+  @Modifying
+  @Query("update UserVo u set u.pwd=:pwd where u.id=:id")
+  void updatePwd(@Param("id") Long id, @Param("pwd") String pwd);
+  
+  @Query("select u from UserVo u where u.username=:username or u.mail=:email")
+  UserVo verify(@Param("username") String username, @Param("email") String email);
 
+  @Query("select case when count(u)>0 then true else false end from UserVo u where u.username=:username or u.mail=:email")
+  boolean exists(@Param("username") String username, @Param("email") String email);
+
+
+  public UserVo findByUsername(String username);
 
 }

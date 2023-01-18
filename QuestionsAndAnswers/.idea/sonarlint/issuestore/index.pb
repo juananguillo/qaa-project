@@ -1,16 +1,12 @@
 
 A
 qaa-model/pom.xml,2\4\2404fe21c21fc1aa9d9da7eda35950f98d8709e1
-@
-qaa-rest/pom.xml,6\7\67bae58ac4b1720080bc0888f268f543c3211994
 w
 Gqaa-model/src/main/java/com/qaa/model/mapper/questions/QuestionMap.java,8\a\8a1693e4e18e3b11200f422a8ff2496d7defff31
 s
 Cqaa-model/src/main/java/com/qaa/model/mapper/answers/AnswerMap.java,d\4\d4e605a1494fb49c2fabb40b468a6c269c4dbbdc
 w
 Gqaa-model/src/main/java/com/qaa/model/repository/answers/AnswerDao.java,6\2\626a8444bebc65c809947463c996048d98dec501
-k
-;qaa-api/src/main/java/com/qaa/api/users/dto/NewUserDto.java,a\2\a22375c1bbf916738ac02bea8928ef9c60e79970
 Å
 Qqaa-model/src/main/java/com/qaa/model/service/questions/RoundQuestionService.java,7\b\7b6a2d0e0385f48d5b9a9082801d0e43fb3bb00d
 |

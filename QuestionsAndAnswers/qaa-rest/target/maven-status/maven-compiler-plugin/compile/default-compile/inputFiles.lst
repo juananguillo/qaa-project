@@ -1,4 +1,8 @@
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-rest\src\main\java\com\qaa\api\answers\RoundAnswerController.java
 C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-rest\src\main\java\com\qaa\api\questions\DemoController.java
-C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-rest\src\main\java\com\qaa\api\questions\QuestionsController.java
-C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-rest\src\main\java\com\qaa\api\questions\RoundsController.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-rest\src\main\java\com\qaa\api\questions\QuestionController.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-rest\src\main\java\com\qaa\api\questions\RoundQuestionController.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-rest\src\main\java\com\qaa\api\users\AuthController.java
 C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-rest\src\main\java\com\qaa\api\users\UsersController.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-rest\src\main\java\com\qaa\api\utils\JWTUtil.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-rest\src\main\java\com\qaa\api\answers\AnswerController.java

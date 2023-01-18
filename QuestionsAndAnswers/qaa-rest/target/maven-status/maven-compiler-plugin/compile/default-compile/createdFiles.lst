@@ -1,6 +1,7 @@
+com\qaa\api\users\AuthController.class
+com\qaa\api\answers\AnswerController.class
 com\qaa\api\answers\RoundAnswerController.class
 com\qaa\api\questions\RoundQuestionController.class
 com\qaa\api\questions\DemoController.class
 com\qaa\api\users\UsersController.class
-com\qaa\api\answers\AnswerController.class
 com\qaa\api\questions\QuestionController.class

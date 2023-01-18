@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.qaa.api.questions.dto.RoundQuestionDto;
 import com.qaa.model.service.questions.RoundQuestionService;
+import com.qaa.model.security.JWTUtil;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,9 @@ public class RoundQuestionController {
 
   @Autowired
   private RoundQuestionService roundQuestionService;
+  
+  @Autowired
+  private JWTUtil jwtUtil;
   
   @PostMapping(value = "api/save")
   public void save(@Valid @RequestBody RoundQuestionDto rounds){
@@ -27,8 +31,8 @@ public class RoundQuestionController {
   }
   
   @GetMapping(value = "api/findAll")
-  public List<RoundQuestionDto> findAll(){
-    return roundQuestionService.findAll();
+  public List<RoundQuestionDto> findAll(@RequestHeader(value = "Authorization") String token){
+    return jwtUtil.getKey(token)!=null? roundQuestionService.findAll():null;
   }
   
   @DeleteMapping(value = "api/delete/{id}")

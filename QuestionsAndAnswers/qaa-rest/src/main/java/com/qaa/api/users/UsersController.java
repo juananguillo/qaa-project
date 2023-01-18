@@ -21,11 +21,6 @@ public class UsersController {
   }
   
   
-  @PostMapping(value = "api/save")
-  public void save(@Valid @RequestBody UserDto user){
-    usersService.save(user);
-  }
-  
   @DeleteMapping(value = "api/delete/{id}")
   public void delete(@PathVariable(value = "id") Long id){
     usersService.delete(id);
@@ -33,7 +28,7 @@ public class UsersController {
   
   @PutMapping(value = "api/update")
   public void update(@Valid @RequestBody UserDto user){
-     usersService.update(user);
+     usersService.updateInfo(user);
   }
   
 }

@@ -9,12 +9,19 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class NewUserDto {
-    @NotNull
-    @NotEmpty
-    private String username;
+public class UserLogDto {
 
-    @NotNull
-    @NotEmpty
-    private String email;
+  private Long id;
+
+  @NotNull
+  @NotEmpty
+  private String username;
+
+  @NotNull
+  @NotEmpty
+  private String pwd;
+
+  @NotNull
+  @NotEmpty
+  private String email;
 }
