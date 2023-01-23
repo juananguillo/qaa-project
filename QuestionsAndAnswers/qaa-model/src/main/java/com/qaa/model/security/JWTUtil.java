@@ -1,6 +1,7 @@
 package com.qaa.model.security;
 
 
+import com.qaa.api.users.vo.UserVo;
 import io.jsonwebtoken.*;
 import jakarta.xml.bind.DatatypeConverter;
 import org.slf4j.Logger;
@@ -61,7 +62,7 @@ public class JWTUtil {
      * @param subject
      * @return
      */
-    public String create(String id, String subject) {
+    public String create(UserVo user) {
 
         // The JWT signature algorithm used to sign the token
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
@@ -74,8 +75,8 @@ public class JWTUtil {
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 
         //  set the JWT Claims
-        JwtBuilder builder = Jwts.builder().setId(id).setIssuedAt(now).setSubject(subject).setIssuer(issuer)
-                 .signWith(signingKey,signatureAlgorithm);
+        JwtBuilder builder = Jwts.builder().setId(user.getId().toString()).setIssuedAt(now).setSubject(user.getUsername()).setIssuer(issuer)
+                .claim("roles", user.getUserRoles().toString()).signWith(signingKey,signatureAlgorithm);
 
         if (ttlMillis >= 0) {
             long expMillis = nowMillis + ttlMillis;

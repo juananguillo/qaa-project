@@ -53,11 +53,11 @@ public class UsersServiceImpl  implements UsersService {
     }
 
     @Override
-    public UserLogDto verify(UserLogDto user) {
+    public UserVo verify(UserLogDto user) {
         UserVo userSaved = dao.verify(user.getUsername(), user.getEmail());
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
         if(userSaved==null) return null;
-        return argon2.verify(userSaved.getPwd(), user.getPwd())?map.asDtoEnroll(userSaved):null;
+        return argon2.verify(userSaved.getPwd(), user.getPwd())?userSaved:null;
     }
 
     @Override

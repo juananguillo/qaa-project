@@ -21,7 +21,7 @@ public interface UsersService extends UserDetailsService {
     
     void updateLogin(UserLogDto user);
     
-    UserLogDto verify(UserLogDto user);
+    UserVo verify(UserLogDto user);
 
     boolean exist(NewUserDto user);
     

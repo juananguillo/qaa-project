@@ -2,6 +2,7 @@ package com.qaa.api.users;
 
 import com.qaa.api.users.dto.NewUserDto;
 import com.qaa.api.users.dto.UserLogDto;
+import com.qaa.api.users.vo.UserVo;
 import com.qaa.model.security.JWTUtil;
 import com.qaa.model.service.users.UsersService;
 import jakarta.validation.Valid;
@@ -21,8 +22,8 @@ public class AuthController {
     @PostMapping(value = "api/login")
     public String login(@Valid @RequestBody UserLogDto user){
         System.out.println("login");
-        UserLogDto userlog= usersService.verify(user);
-        return (userlog!=null)?jwtUtil.create(String.valueOf(userlog.getId()), userlog.getUsername()) :null;
+        UserVo userlog= usersService.verify(user);
+        return (userlog!=null)?jwtUtil.create(userlog) :null;
     
     }
 

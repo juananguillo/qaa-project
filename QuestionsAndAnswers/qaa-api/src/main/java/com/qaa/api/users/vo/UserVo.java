@@ -2,7 +2,7 @@ package com.qaa.api.users.vo;
 
 import com.qaa.api.questions.vo.RoundQuestionVo;
 import com.qaa.api.users.auth.Authority;
-import com.qaa.api.users.userRol.UserRolVo;
+import com.qaa.api.users.roles.RoleVo;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -13,7 +13,6 @@ import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -50,14 +49,19 @@ public class UserVo implements UserDetails {
     @OneToMany(mappedBy ="id", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<RoundQuestionVo> rounds;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "user")
-    private List<UserRolVo> userRoles;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private List<RoleVo> userRoles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<Authority> auth = new ArrayList<>();
         this.userRoles.forEach(userRol ->{
-            auth.add(new Authority(userRol.getRole().getRolName()));
+            auth.add(new Authority(userRol.getRolName()));
         });
         return auth;
     }

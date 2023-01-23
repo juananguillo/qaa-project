@@ -5,8 +5,10 @@ import java.util.List;
 import com.qaa.api.questions.dto.RoundQuestionDto;
 import com.qaa.model.service.questions.RoundQuestionService;
 import com.qaa.model.security.JWTUtil;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -29,7 +31,8 @@ public class RoundQuestionController {
   public void update(@Valid @RequestBody RoundQuestionDto rounds){
     roundQuestionService.update(rounds);
   }
-  
+
+  @RolesAllowed("USER")
   @GetMapping(value = "api/findAll")
   public List<RoundQuestionDto> findAll(@RequestHeader(value = "Authorization") String token){
     return jwtUtil.getKey(token)!=null? roundQuestionService.findAll():null;

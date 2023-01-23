@@ -24,4 +24,5 @@ public class UserLogDto {
   @NotNull
   @NotEmpty
   private String email;
+  
 }

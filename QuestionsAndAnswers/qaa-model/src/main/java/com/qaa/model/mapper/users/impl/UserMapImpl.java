@@ -1,5 +1,6 @@
 package com.qaa.model.mapper.users.impl;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +8,7 @@ import java.util.stream.Collectors;
 
 import com.qaa.api.users.dto.UserDto;
 import com.qaa.api.users.dto.UserLogDto;
+import com.qaa.api.users.roles.RoleVo;
 import com.qaa.api.users.vo.UserVo;
 import com.qaa.model.mapper.questions.RoundQuestionMap;
 import com.qaa.model.mapper.users.UserMap;
@@ -57,6 +59,13 @@ public class UserMapImpl implements UserMap {
     newUser.setUsername(user.getUsername());
     newUser.setPwd(argon2.hash(1, 1024, 1, user.getPwd()));
     newUser.setMail(user.getEmail());
+    RoleVo role= new RoleVo(1, "USER");
+    /*
+    INSERT INTO ROLES(ID, ROL_NAME)
+    VALUES(1, 'USER')*/
+    List roles= new ArrayList<>();
+    roles.add(role);
+    newUser.setUserRoles(roles);
     
     return newUser;
   }

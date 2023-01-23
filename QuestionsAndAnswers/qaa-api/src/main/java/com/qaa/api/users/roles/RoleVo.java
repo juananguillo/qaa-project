@@ -1,6 +1,5 @@
 package com.qaa.api.users.roles;
 
-import com.qaa.api.users.userRol.UserRolVo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,8 +18,5 @@ public class RoleVo {
     private long id;
 
     private String rolName;
-
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "role")
-    private List<UserRolVo> userRoles;
 
 }

@@ -13,3 +13,9 @@ Qqaa-model/src/main/java/com/qaa/model/service/questions/RoundQuestionService.ja
 Lqaa-model/src/main/java/com/qaa/model/service/questions/QuestionService.java,e\6\e6221a1d12efa3e13e8a650890156f349c32c881
 }
 Mqaa-model/src/main/java/com/qaa/model/service/answers/RoundAnswerService.java,c\4\c4ef389cdb770f9ae80c1aa4f3e2197dcd6c1e7c
+s
+Cqaa-model/src/main/java/com/qaa/model/repository/users/UserDao.java,c\e\ceb636247cc9f186899c0afbd40cdefd44c25c03
+u
+Eqaa-model/src/main/java/com/qaa/model/service/users/UsersService.java,b\7\b7adc78336b28fda065c86fdfe6b9a77e0b6741f
+l
+<qaa-rest/src/main/java/com/qaa/api/users/AuthController.java,4\5\459ba84e63d31239c936c05ed00c9c58c2bbfc05
