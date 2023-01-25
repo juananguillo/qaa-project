@@ -18,6 +18,7 @@ C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-model\src\main\jav
 C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-model\src\main\java\com\qaa\model\mapper\answers\impl\RoundAnswerMapImpl.java
 C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-model\src\main\java\com\qaa\model\service\users\UsersService.java
 C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-model\src\main\java\com\qaa\model\security\JwtAuthEntryPoint.java
+C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-model\src\main\java\com\qaa\model\security\OwnerValidator.java
 C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-model\src\main\java\com\qaa\model\security\WebSecurityConfig.java
 C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-model\src\main\java\com\qaa\model\mapper\questions\impl\RoundQuestionMapImpl.java
 C:\Users\juan.guillo\Proyecto\app-qaa\QuestionsAndAnswers\qaa-model\src\main\java\com\qaa\model\service\answers\AnswerService.java

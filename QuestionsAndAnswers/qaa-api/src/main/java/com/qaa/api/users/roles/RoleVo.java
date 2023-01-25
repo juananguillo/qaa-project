@@ -19,4 +19,9 @@ public class RoleVo {
 
     private String rolName;
 
+    @Override
+    public String toString() {
+        return this.rolName;
+    }
+
 }

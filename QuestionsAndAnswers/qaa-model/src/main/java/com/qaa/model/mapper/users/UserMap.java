@@ -2,6 +2,7 @@ package com.qaa.model.mapper.users;
 
 import java.util.List;
 
+import com.qaa.api.users.dto.NewUserDto;
 import com.qaa.api.users.dto.UserDto;
 import com.qaa.api.users.dto.UserLogDto;
 import com.qaa.api.users.vo.UserVo;
@@ -14,7 +15,7 @@ public interface UserMap {
 
   UserVo asVo(UserDto user);
 
-  UserVo asVoEnroll(UserLogDto user);
+  UserVo asVoEnroll(NewUserDto user);
   
   UserLogDto asDtoEnroll(UserVo user);
 }

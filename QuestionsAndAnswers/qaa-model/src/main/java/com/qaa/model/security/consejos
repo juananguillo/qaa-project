@@ -1,0 +1,14 @@
+Use tokens de acceso de corta duración (<5 m) combinados con un token de actualización almacenado por el cliente de mayor duración (unas pocas horas) .
+Cada solicitud verifica la validez de la fecha de vencimiento del token de autenticación o actualización.
+Cuando el token de acceso caduca, el cliente usa el token de actualización para actualizar el token de acceso.
+Durante la verificación del token de actualización, el servidor verifica una pequeña lista negra de ID de usuario; si se encuentra, rechaza la solicitud de actualización.
+Cuando un cliente no tiene un token de actualización o autenticación válido (no vencido), el usuario debe volver a iniciar sesión, ya que todas las demás solicitudes serán rechazadas.
+En la solicitud de inicio de sesión, verifique el almacenamiento de datos del usuario para la prohibición.
+Al cerrar la sesión: agregue ese usuario a la lista negra de la sesión para que tenga que volver a iniciar sesión. Tendría que almacenar información adicional para no cerrar la sesión de todos los dispositivos en un entorno de varios dispositivos, pero podría hacerlo agregando un campo de dispositivo al lista negra de usuarios.
+Para forzar el reingreso después de una cantidad de tiempo x, mantenga la última fecha de inicio de sesión en el token de autenticación y verifíquelo por solicitud.
+Para forzar el cierre de sesión de todos los usuarios, restablezca la clave hash del token.
+Esto requiere que mantenga una lista negra (estado) en el servidor, asumiendo que la tabla de usuarios contiene información de usuarios prohibidos. La lista negra de sesiones no válidas es una lista de ID de usuario. Esta lista negra solo se verifica durante una solicitud de token de actualización. Se requieren entradas para vivir en él siempre que el token de actualización TTL. Una vez que el token de actualización caduque, el usuario deberá volver a iniciar sesión.
+
+
+La búsqueda en el almacén de datos solo es necesaria cuando los clientes solicitan un nuevo token de acceso sin estado (para validar el token de actualización). Los tokens de acceso son de corta duración (generalmente de 5 a 30 minutos) y no se pueden invalidar a pedido (sin estado). Los tokens de actualización son de larga duración (desde horas hasta el infinito), 
+pero admiten la invalidación, por lo que requieren búsquedas en el almacén de datos para su validación (aunque con mucha menos frecuencia).

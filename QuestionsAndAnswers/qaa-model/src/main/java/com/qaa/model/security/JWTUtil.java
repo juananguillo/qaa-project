@@ -32,6 +32,13 @@ public class JWTUtil {
     @Value("${security.jwt.ttlMillis}")
     private long ttlMillis;
 
+    @Value("${security.jwtNew.secret}")
+    private String newKey;
+
+    @Value("${security.jwtNew.ttlMillis}")
+    private long newTtlMillis;
+
+
     private final Logger log = LoggerFactory
             .getLogger(JWTUtil.class);
 
@@ -58,8 +65,7 @@ public class JWTUtil {
     /**
      * Create a new token.
      *
-     * @param id
-     * @param subject
+     * @param user
      * @return
      */
     public String create(UserVo user) {
@@ -73,10 +79,11 @@ public class JWTUtil {
         //  sign JWT with our ApiKey secret
         byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(key);
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
-
+        System.out.println("Roles: "+user.getUserRoles().toString());
         //  set the JWT Claims
         JwtBuilder builder = Jwts.builder().setId(user.getId().toString()).setIssuedAt(now).setSubject(user.getUsername()).setIssuer(issuer)
-                .claim("roles", user.getUserRoles().toString()).signWith(signingKey,signatureAlgorithm);
+                .claim("roles", user.getUserRoles().toString())
+                .signWith(signingKey,signatureAlgorithm);
 
         if (ttlMillis >= 0) {
             long expMillis = nowMillis + ttlMillis;
@@ -88,8 +95,42 @@ public class JWTUtil {
         return builder.compact();
     }
 
+
+    public String createNewUser(UserVo user) {
+
+        // The JWT signature algorithm used to sign the token
+        SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
+
+        long nowMillis = System.currentTimeMillis();
+        Date now = new Date(nowMillis);
+
+        //  sign JWT with our ApiKey secret
+        byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(newKey);
+        Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
+        //  set the JWT Claims
+        JwtBuilder builder = Jwts.builder().setSubject(user.getUsername()).setIssuedAt(now).setIssuer(issuer)
+                .claim("email", user.getMail())
+                .claim("pwd", user.getPwd())
+                .claim("age", user.getAge())
+                .claim("name", user.getName())
+                .claim("surname", user.getSurname())
+                .claim("description", user.getDescription())
+                .signWith(signingKey,signatureAlgorithm);
+
+        if (newTtlMillis >= 0) {
+            long expMillis = nowMillis + newTtlMillis;
+            Date exp = new Date(expMillis);
+            builder.setExpiration(exp);
+        }
+
+        // Builds the JWT and serializes it to a compact, URL-safe string
+        return builder.compact();
+    }
+
+
     public boolean validateToken(String token) throws Exception {
         try{
+            System.out.println(token);
             Jwts.parserBuilder().setSigningKey(DatatypeConverter.parseBase64Binary(key)).build().parseClaimsJws(token);
             return true;
         } catch (MalformedJwtException ex) {
@@ -132,4 +173,12 @@ public class JWTUtil {
 
         return claims.getId();
     }
+
+    public Claims parseClaims(String jwt) {
+        // This line will throw an exception if it is not a signed JWS (as
+        // expected)
+
+        return  Jwts.parserBuilder().setSigningKey(DatatypeConverter.parseBase64Binary(key)).build().parseClaimsJws(jwt).getBody();
+    }
+    
 }

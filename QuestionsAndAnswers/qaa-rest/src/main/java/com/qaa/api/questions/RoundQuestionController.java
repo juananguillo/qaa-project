@@ -32,10 +32,10 @@ public class RoundQuestionController {
     roundQuestionService.update(rounds);
   }
 
-  @RolesAllowed("USER")
+  @PreAuthorize("hasRole('ROLE_USER')")
   @GetMapping(value = "api/findAll")
   public List<RoundQuestionDto> findAll(@RequestHeader(value = "Authorization") String token){
-    return jwtUtil.getKey(token)!=null? roundQuestionService.findAll():null;
+    return roundQuestionService.findAll();
   }
   
   @DeleteMapping(value = "api/delete/{id}")

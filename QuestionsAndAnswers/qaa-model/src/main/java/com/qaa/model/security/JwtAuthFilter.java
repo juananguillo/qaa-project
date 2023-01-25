@@ -1,6 +1,9 @@
 package com.qaa.model.security;
 
+import com.qaa.api.users.roles.RoleVo;
+import com.qaa.api.users.vo.UserVo;
 import com.qaa.model.service.users.UsersService;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -15,7 +18,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import javax.management.relation.Role;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
@@ -33,15 +39,13 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         // get JWT (token) from http request
         String token = getJWTfromRequest(request);
         // validate token
-        System.out.println("token: "+token);
         try {
             if(StringUtils.hasText(token) && jwtUtil.validateToken(token)){
                 // get username from token
-                String username = jwtUtil.getSubject(token);
-                System.out.println("userName: "+username);
+             
                 // load user associated with token
-                UserDetails userDetails = usersService.loadUserByUsername(username);
-                System.out.println("userDetails: "+userDetails.getAuthorities());
+                UserDetails userDetails = getUserDetails(token);
+                System.out.println("userDetails: "+userDetails.getAuthorities().toString());
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                         userDetails, null, userDetails.getAuthorities()
                 );
@@ -56,11 +60,35 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     }
 
     // Bearer <accessToken>
-    private String getJWTfromRequest(HttpServletRequest request){
+    public String getJWTfromRequest(HttpServletRequest request){
         String bearerToken = request.getHeader("Authorization");
         if(StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")){
             return bearerToken.substring(7, bearerToken.length());
         }
         return null;
     }
+
+    public UserDetails getUserDetails(String token) {
+        UserVo userDetails = new UserVo();
+        Claims claims = jwtUtil.parseClaims(token);
+        String roles = (String) claims.get("roles");
+
+        roles = roles.replace("[", "").replace("]", "");
+        String[] roleNames = roles.split(",");
+        
+        List<RoleVo> listRoles=new ArrayList<>();
+        for (String aRoleName : roleNames) {
+            RoleVo rol=new RoleVo();
+            rol.setRolName(aRoleName);
+           listRoles.add(rol);
+        }
+        userDetails.setUserRoles(listRoles);
+     
+
+        userDetails.setId(Long.parseLong(claims.getId()));
+        userDetails.setUsername(claims.getSubject());
+
+        return userDetails;
+    }
+    
 }
